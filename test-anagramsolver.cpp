@@ -19,3 +19,9 @@ TEST_CASE("Not an anagram") {
   std::string strTwo = "Batman";
   REQUIRE_FALSE(isAnagram(strOne, strTwo));
 }
+
+TEST_CASE("Not anagram, words with same length") {
+  std::string strOne = "honey";
+  std::string strTwo = "money";
+  REQUIRE_FALSE(isAnagram(strOne, strTwo));
+}

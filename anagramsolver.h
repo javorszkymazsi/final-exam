@@ -6,4 +6,4 @@ const int MIN_UPPERCASE_ASCII = 65;
 const int MAX_UPPERCASE_ASCII = 90;
 
 bool isAnagram(std::string, std::string);
-bool isUppercase(char character);
+bool isUppercase(char);
