@@ -25,3 +25,9 @@ TEST_CASE("Not anagram, words with same length") {
   std::string strTwo = "money";
   REQUIRE_FALSE(isAnagram(strOne, strTwo));
 }
+
+TEST_CASE("Anagram sensitive for white space") {
+  std::string strOne = "Batman";
+  std::string strTwo = "man bat";
+  REQUIRE(isAnagram(strOne, strTwo));
+}

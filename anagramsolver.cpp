@@ -3,27 +3,42 @@
 
 bool isAnagram(std::string strOne, std::string strTwo)
 {
-  if (strOne.size() != strTwo.size())
+  std::string tempOne = removeWhiteSpace(strOne);
+  std::string tempTwo = removeWhiteSpace(strTwo);
+  if (tempOne.size() != tempTwo.size())
   {
     return false;
   }
   for (unsigned int i = 0; i < strOne.size(); ++i)
   {
-    if (isUppercase(strOne[i]))
+    if (isUppercase(tempOne[i]))
     {
-      strOne[i] += SHIFT_FROM_UPPERCASE_TO_LOWERCASE;
+      tempOne[i] += SHIFT_FROM_UPPERCASE_TO_LOWERCASE;
     }
-    if (isUppercase(strTwo[i]))
+    if (isUppercase(tempTwo[i]))
     {
-      strTwo[i] += SHIFT_FROM_UPPERCASE_TO_LOWERCASE;
+      tempTwo[i] += SHIFT_FROM_UPPERCASE_TO_LOWERCASE;
     }
   }  
-  std::sort(strOne.begin(), strOne.end());
-  std::sort(strTwo.begin(), strTwo.end());
-  return strOne == strTwo;
+  std::sort(tempOne.begin(), tempOne.end());
+  std::sort(tempTwo.begin(), tempTwo.end());
+  return tempOne == tempTwo;
 }
 
 bool isUppercase(char character)
 {
   return (MIN_UPPERCASE_ASCII <= character && character <= MAX_UPPERCASE_ASCII);
+}
+
+std::string removeWhiteSpace(std::string str)
+{
+  std::string noWhiteSpaceStr = "";
+  for (unsigned int i = 0; i < str.size(); ++i)
+  {
+    if (str[i] != ' ')
+    {
+      noWhiteSpaceStr.push_back(str[i]);
+    }
+  }
+  return noWhiteSpaceStr;
 }

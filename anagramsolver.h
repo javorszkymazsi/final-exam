@@ -7,3 +7,4 @@ const int MAX_UPPERCASE_ASCII = 90;
 
 bool isAnagram(std::string, std::string);
 bool isUppercase(char);
+std::string removeWhiteSpace(std::string);
