@@ -11,11 +11,11 @@ bool isAnagram(std::string strOne, std::string strTwo)
   {
     if (isUppercase(strOne[i]))
     {
-      strOne[i] += 32;
+      strOne[i] += SHIFT_FROM_UPPERCASE_TO_LOWERCASE;
     }
     if (isUppercase(strTwo[i]))
     {
-      strTwo[i] += 32;
+      strTwo[i] += SHIFT_FROM_UPPERCASE_TO_LOWERCASE;
     }
   }  
   std::sort(strOne.begin(), strOne.end());
@@ -25,5 +25,5 @@ bool isAnagram(std::string strOne, std::string strTwo)
 
 bool isUppercase(char character)
 {
-  return (64 < character && character < 91);
+  return (MIN_UPPERCASE_ASCII <= character && character <= MAX_UPPERCASE_ASCII);
 }
